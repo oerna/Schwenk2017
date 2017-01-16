@@ -207,9 +207,11 @@ $(document).ready(function () {
   google.maps.event.addDomListener(window, 'load', init);
 
   function init() {
-    var myLatlng = new google.maps.LatLng(41.850033, -87.6500523);
+    var myLatlng = new google.maps.LatLng(49.2401, 6.9969);
+    var ubersee = new google.maps.LatLng(30.850033, -60.6500523);
+    var tokyo = new google.maps.LatLng(35.6894, 139.6917);
     var mapOptions = {
-        zoom: 15,
+        zoom: 2,
         scrollwheel: false,
         navigationControl: false,
         mapTypeControl: false,
@@ -224,7 +226,17 @@ $(document).ready(function () {
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: 'KreFolio!'
+        title: 'Headquarter'
+    });
+      var marker = new google.maps.Marker({
+        position: ubersee,
+        map: map,
+        title: 'Ubersee'
+    });
+       var marker = new google.maps.Marker({
+        position: tokyo,
+        map: map,
+        title: 'Schwenk - Tokyo'
     });
   }
 

@@ -159,7 +159,10 @@ h6 {
   background: #e74c3c;
 }
 .main-color {
-  color: #e74c3c;
+ color: #e74c3c;
+}
+.main-color2 {
+ color: #444;
 }
 .white-color {
   color: #fff;
