@@ -208,8 +208,21 @@ $(document).ready(function () {
 
   function init() {
     var myLatlng = new google.maps.LatLng(49.2401, 6.9969);
-    var ubersee = new google.maps.LatLng(30.850033, -60.6500523);
     var tokyo = new google.maps.LatLng(35.6894, 139.6917);
+    var telaviv = new google.maps.LatLng(32.0852999, 34.7817675999);
+    var seychelles = new google.maps.LatLng(-4.679574, 55.491977);
+    var bonaberi = new google.maps.LatLng(4.0776879, 9.650840099);
+    var vancouver = new google.maps.LatLng(49.2827291, -123.1207375);
+    var reunion = new google.maps.LatLng(-21.115141, 55.536384);
+    var paris = new google.maps.LatLng(48.856614, 2.352221);
+    var bangkok = new google.maps.LatLng(13.7563309, 100.5017651);
+    var lapaz = new google.maps.LatLng(-16.489689,-68.119293599);
+    var vallingby = new google.maps.LatLng(59.3670813,17.86914339);
+    var portland = new google.maps.LatLng(27.8772463,-97.323880);
+    var capetown = new google.maps.LatLng(-33.9248685,18.4240552);
+
+
+      
     var mapOptions = {
         zoom: 2,
         scrollwheel: false,
@@ -228,15 +241,66 @@ $(document).ready(function () {
         map: map,
         title: 'Headquarter'
     });
-      var marker = new google.maps.Marker({
-        position: ubersee,
-        map: map,
-        title: 'Ubersee'
-    });
+      
        var marker = new google.maps.Marker({
         position: tokyo,
         map: map,
         title: 'Schwenk - Tokyo'
+    });
+         var marker = new google.maps.Marker({
+        position: telaviv,
+        map: map,
+        title: 'Schwenk - Tel Aviv'
+    });
+       var marker = new google.maps.Marker({
+        position: seychelles,
+        map: map,
+        title: 'Schwenk - Seychelles'
+    });
+      var marker = new google.maps.Marker({
+        position: bonaberi,
+        map: map,
+        title: 'Schwenk - Bonaberi'
+    });
+      var marker = new google.maps.Marker({
+        position: vancouver,
+        map: map,
+        title: 'Schwenk - Vancouver'
+    });
+      var marker = new google.maps.Marker({
+        position: vancouver,
+        map: map,
+        title: 'Schwenk - Reunion'
+    });
+      var marker = new google.maps.Marker({
+        position: paris,
+        map: map,
+        title: 'Schwenk - Eiffel'
+    });
+      var marker = new google.maps.Marker({
+        position: bangkok,
+        map: map,
+        title: 'Schwengkok'
+    });
+      var marker = new google.maps.Marker({
+        position: lapaz,
+        map: map,
+        title: 'Schwenk - La Paz, Bolivia'
+    });
+    var marker = new google.maps.Marker({
+        position: vallingby,
+        map: map,
+        title: 'Schwenk - Vällingby'
+    });
+    var marker = new google.maps.Marker({
+        position: portland,
+        map: map,
+        title: 'Schwenk - Portland'
+    });
+    var marker = new google.maps.Marker({
+        position: capetown,
+        map: map,
+        title: 'Schwenk the Cape'
     });
   }
 
