@@ -313,7 +313,7 @@ $(document).ready(function () {
         return pattern.test(emailAddress);
     };
 
-    $("#contact-form").submit(function (e) {
+    $("#contact-formZZ").submit(function (e) {
         e.preventDefault();
         var firstName = $("#first-name").val();
         var lastName = $("#last-name").val();
@@ -344,9 +344,9 @@ $(document).ready(function () {
 
 $(function () {
 
-    $('#contact-formZZ').validator();
+    $('#contact-form').validator();
 
-    $('#contact-formZZ').on('submit', function (e) {
+    $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
             var url = "sendmail.php";
 
