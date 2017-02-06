@@ -1,30 +1,48 @@
 <?php
-// Email Submit
-// Note: filter_var() requires PHP >= 5.2.0
-if ( isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['project_name']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
-    // detect & prevent header injections
-    $test = "/(content-type|bcc:|cc:|to:)/i";
-    foreach ( $_POST as $key => $val ) {
-        if ( preg_match( $test, $val ) ) {
-        exit;
+
+// configure
+$from = 'form@schwenktheworld.com';
+$sendTo = 'bjoerngottschall@gmail.com';
+$subject = 'New message from contact form';
+$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message'); // array variable name => Text to appear in the email
+$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
+$errorMessage = 'There was an error while submitting the form. Please try again later';
+
+// let's do the sending
+
+try
+{
+    $emailText = "You have new message from contact form\n=============================\n";
+
+    foreach ($_POST as $key => $value) {
+
+        if (isset($fields[$key])) {
+            $emailText .= "$fields[$key]: $value\n";
+        }
     }
+
+    $headers = array('Content-Type: text/html; charset="UTF-8";',
+        'From: ' . $from,
+        'Reply-To: ' . $from,
+        'Return-Path: ' . $from,
+    );
+    
+    mail($sendTo, $subject, $emailText, implode("\n", $headers));
+
+    $responseArray = array('type' => 'success', 'message' => $okMessage);
+}
+catch (\Exception $e)
+{
+    $responseArray = array('type' => 'danger', 'message' => $errorMessage);
 }
 
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$project_name = $_POST['project_name'];
-$description = $_POST['description'];
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $encoded = json_encode($responseArray);
 
-$message = "
-First Name: $first_name \n
-Last Name: $last_name\n
-Project Name: $project_name\n
-Description: $description
-";
+    header('Content-Type: application/json');
 
-mail( "bjoerngottschall@gmail.com", $_POST['date'], $message, "From:" . $_POST['email'] );
-  //            ^
-  //  Replace with your email
+    echo $encoded;
 }
-?>
+else {
+    echo $responseArray['message'];
+}

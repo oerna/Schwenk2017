@@ -313,7 +313,7 @@ $(document).ready(function () {
         return pattern.test(emailAddress);
     };
 
-    $("#contact-form").submit(function (e) {
+    $("#contact-formFFFF").submit(function (e) {
         e.preventDefault();
         var firstName = $("#first-name").val();
         var lastName = $("#last-name").val();
@@ -339,4 +339,34 @@ $(document).ready(function () {
 
         return false;
     });
+});
+
+
+$(function () {
+
+    $('#contact-form').validator();
+
+    $('#contact-form').on('submit', function (e) {
+        if (!e.isDefaultPrevented()) {
+            var url = "sendmail.php";
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $(this).serialize(),
+                success: function (data)
+                {
+                    var messageAlert = 'alert-' + data.type;
+                    var messageText = data.message;
+
+                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                    if (messageAlert && messageText) {
+                        $('#contact-form').find('.messages').html(alertBox);
+                        $('#contact-form')[0].reset();
+                    }
+                }
+            });
+            return false;
+        }
+    })
 });
