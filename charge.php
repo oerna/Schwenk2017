@@ -1,5 +1,8 @@
 <?php
 
+require_once ('stripe-php-4.4.0/init.php');
+
+        {
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 \Stripe\Stripe::setApiKey("sk_test_x5K3pRsocuKhcmMWtsX7gBQI");
@@ -15,6 +18,7 @@ $charge = \Stripe\Charge::create(array(
   "description" => "Example charge",
   "source" => $token,
 ));
+}
 
 ?>
 
