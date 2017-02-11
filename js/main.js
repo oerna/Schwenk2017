@@ -105,6 +105,9 @@ $(document).ready(function () {
     $('.call-to-action a').nivoLightbox({
     effect: 'fall'
   });
+    $('.what-to-vid a').nivoLightbox({
+    effect: 'fall'
+  });
 
 
   /* ========================================================================
