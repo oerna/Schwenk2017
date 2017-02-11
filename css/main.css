@@ -243,6 +243,10 @@ h6
     border: 0;
 }
 
+.button-small{
+    padding: 10px 30px !important;
+}
+
 .button:hover
 {
     cursor: pointer;
@@ -270,6 +274,11 @@ h6
 {
     padding-top: 90px;
     padding-bottom: 90px;
+}
+
+.padding-top-medium
+{
+    padding-top: 45px;
 }
 
 .padding-top-large
@@ -1766,4 +1775,8 @@ header .logo-container
     list-style-type: square !important;
     position: relative;
     left:35px;
+}
+
+.headerS .container{
+    padding-top: 20px !important;
 }
