@@ -1757,3 +1757,8 @@ header .logo-container
     left: -10px;
     margin-bottom: 15px;
 }
+.schwenkfeatures li{
+    list-style-type: square !important;
+    position: relative;
+    left:35px;
+}
