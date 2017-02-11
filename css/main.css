@@ -58,6 +58,7 @@ Developed By: Zahidul Hossain (http://twitter.com/ch0yan)
 
 html
 {
+    
     font-size: 1em;
     line-height: 1.4;
 }
@@ -202,6 +203,11 @@ h6
 .main-bg
 {
     background: #e74c3c;
+}
+
+.dark-bg
+{
+    background: #444;
 }
 
 .main-color
@@ -1740,3 +1746,14 @@ header .logo-container
   }
 }
 
+
+
+
+
+.myicon{
+    width: 160%;
+    height: 160%;
+    position: relative;
+    left: -10px;
+    margin-bottom: 15px;
+}
