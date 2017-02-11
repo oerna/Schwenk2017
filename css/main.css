@@ -1780,3 +1780,13 @@ header .logo-container
 .headerS .container{
     padding-top: 20px !important;
 }
+
+.price h3{
+    text-decoration: line-through;color: #e74c3c;margin-bottom:5px;
+}
+.price h1{
+    font-size: 48px !important; 
+}
+.limited {
+    color: #e74c3c;
+}
